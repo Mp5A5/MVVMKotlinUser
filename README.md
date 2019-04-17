@@ -1,3 +1,4 @@
 # MVVMKotlinUser
-1、使用Android Jetpack中的ViewModel、LiveData配合Kotlin+RxJava+OkHttp3+Retrofit+RxLifecycle3完成示例，由于Databinding存在的问题，所以本示例并未使用Databinding  
-2、该示例分为3部分
+1、使用Android Jetpack中的ViewModel、LiveData配合Kotlin+RxJava+OkHttp3+Retrofit+RxLifecycle3完成示例，由于ataBinding存在的问题，所以本示例并未使用DataBinding。  
+2、该示例分为3部分:简单网络请求页面NBAActivity，登录测试页面LoginActivity，ListView展示页面HistoryTodayActivity。  
+3、本示例中所有的网络请求均放在Repository层中，所有的业务逻辑均放在ViewModel层中，这也完全符合MVVM模式。
