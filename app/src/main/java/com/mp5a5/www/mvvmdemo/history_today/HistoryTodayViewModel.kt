@@ -2,7 +2,7 @@ package com.mp5a5.www.mvvmdemo.history_today
 
 import android.app.Application
 import com.mp5a5.www.mvvmdemo.mvvm.BaseViewModel
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity
 
 /**
  * @describe

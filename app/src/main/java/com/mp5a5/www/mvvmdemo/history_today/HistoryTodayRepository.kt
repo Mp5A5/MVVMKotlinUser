@@ -3,7 +3,7 @@ package com.mp5a5.www.mvvmdemo.history_today
 import com.mp5a5.www.library.use.BaseObserver
 import com.mp5a5.www.mvvmdemo.mvvm.BaseRepository
 import com.mp5a5.www.mvvmdemo.mvvm.LiveDataEntity
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

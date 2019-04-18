@@ -1,10 +1,10 @@
 package com.mp5a5.www.mvvmdemo.mvvm
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.support.annotation.NonNull
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import androidx.annotation.NonNull
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity
 import java.lang.reflect.ParameterizedType
 
 /**

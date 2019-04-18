@@ -1,7 +1,7 @@
 package com.mp5a5.www.mvvmdemo.mvvm
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import java.lang.reflect.ParameterizedType
 
 /**

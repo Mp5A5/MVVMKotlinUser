@@ -19,10 +19,10 @@ public class NbaService {
     }
 
     public static NbaService getInstance() {
-        return Nbaservice1Holder.S_INSTANCE;
+        return NbaserviceHolder.S_INSTANCE;
     }
 
-    private static class Nbaservice1Holder {
+    private static class NbaserviceHolder {
         private static final NbaService S_INSTANCE = new NbaService();
     }
 

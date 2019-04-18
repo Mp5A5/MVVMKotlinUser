@@ -1,7 +1,7 @@
 package com.mp5a5.www.mvvmdemo.history_today
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.mp5a5.www.mvvmdemo.R
 import com.mp5a5.www.mvvmdemo.mvvm.BaseMVVMActivity
 import com.mp5a5.www.mvvmdemo.mvvm.LiveDataBus

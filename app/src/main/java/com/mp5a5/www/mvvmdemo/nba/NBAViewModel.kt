@@ -1,7 +1,7 @@
 package com.mp5a5.www.mvvmdemo.nba
 
 import android.app.Application
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mp5a5.www.mvvmdemo.mvvm.BaseViewModel
 
 /**
@@ -10,9 +10,9 @@ import com.mp5a5.www.mvvmdemo.mvvm.BaseViewModel
  * @email：wwb199055@126.com
  */
 class NBAViewModel(application: Application) : BaseViewModel<NBARepository>(application) {
-
-    fun getNBAData(key: String,activity:AppCompatActivity) {
-        mRepository.loadNBAData(key,activity)
-    }
-
+  
+  fun getNBAData(key: String, activity: AppCompatActivity) {
+    mRepository.loadNBAData(key, activity)
+  }
+  
 }

@@ -1,7 +1,7 @@
 package com.mp5a5.www.mvvmdemo.nba
 
 import android.annotation.SuppressLint
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mp5a5.www.library.use.BaseDisposableSubscriber
 import com.mp5a5.www.mvvmdemo.mvvm.BaseRepository
 import io.reactivex.android.schedulers.AndroidSchedulers

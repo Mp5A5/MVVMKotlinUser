@@ -1,11 +1,11 @@
 package com.mp5a5.www.mvvmdemo.login
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import androidx.lifecycle.Observer
 import com.mp5a5.www.mvvmdemo.R
 import com.mp5a5.www.mvvmdemo.Tools
 import com.mp5a5.www.mvvmdemo.mvvm.BaseMVVMActivity

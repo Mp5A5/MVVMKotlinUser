@@ -1,7 +1,7 @@
 package com.mp5a5.www.mvvmdemo.login
 
 import android.app.Application
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mp5a5.www.mvvmdemo.NUM_AND_ENGLISH
 import com.mp5a5.www.mvvmdemo.PHONE_NUM
 import com.mp5a5.www.mvvmdemo.RegexUtils

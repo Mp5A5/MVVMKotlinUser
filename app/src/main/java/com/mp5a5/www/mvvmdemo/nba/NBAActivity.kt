@@ -1,8 +1,8 @@
 package com.mp5a5.www.mvvmdemo.nba
 
-import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.mp5a5.www.mvvmdemo.R
 import com.mp5a5.www.mvvmdemo.history_today.HistoryTodayActivity
 import com.mp5a5.www.mvvmdemo.login.LoginActivity
