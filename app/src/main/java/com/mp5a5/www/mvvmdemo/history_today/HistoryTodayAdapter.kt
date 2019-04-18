@@ -25,7 +25,17 @@ class HistoryTodayAdapter(private val dataList: MutableList<HistoryTodayEntity.R
             viewHolder = mView?.tag as ViewHolder
         }
 
-        viewHolder.txt.text = dataList!![position].title
+        /*dataList?.get(position)?.let {
+
+        }*/
+
+        /*with(dataList?.get(position)){
+
+        }*/
+
+        dataList?.get(position)?.run {
+            viewHolder.txt.text = title
+        }
 
         return mView!!
     }

@@ -20,71 +20,74 @@ import org.jetbrains.anko.toast
  * @email：wwb199055@126.com
  */
 class LoginActivity : BaseMVVMActivity<LoginViewModel>(), View.OnClickListener {
-  
-  
-  override fun dataObserver() {
-    
-    LiveDataBus.getDefault().subscribe<String>("LoginBtnCheck").observe(this, Observer { msg ->
-      msg?.let {
-        toast(it)
-      }
-    })
-    
-    LiveDataBus.getDefault().subscribe<LoginEntity>("Login", "sc").observe(this, Observer { msg ->
-      msg?.let {
-        toast(it.msg)
-        Log.e("-->",it.toString())
-      }
-    })
-    
-    LiveDataBus.getDefault().subscribe<LiveDataEntity>("Login").observe(this, Observer { msg ->
-      msg?.let {
-        toast(it.msg)
-      }
-    })
-  }
-  
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_login)
-    
-    btnLogin.setOnClickListener(this)
-    ivNameClear.setOnClickListener(this)
-    ivPasswordClear.setOnClickListener(this)
-  }
-  
-  override fun onClick(v: View?) {
-    v?.id?.let {
-      when (it) {
-        R.id.btnLogin -> mViewModel.getLoginData("1dbe64d0d4e5c700e98760644b234d56", Tools.getEditTextString(etInputName), Tools.getEditTextString(etInputPassword), this)
-        R.id.ivNameClear -> etInputName.setText("")
-        R.id.ivPasswordClear -> switchPasswordCleartext()
-      }
+
+
+    override fun dataObserver() {
+
+        LiveDataBus.getDefault().subscribe<String>("LoginBtnCheck").observe(this, Observer { msg ->
+            msg?.let {
+                toast(it)
+            }
+        })
+
+        LiveDataBus.getDefault().subscribe<LoginEntity>("Login", "sc").observe(this, Observer { msg ->
+            msg?.let {
+                toast(it.msg)
+                Log.e("-->", it.toString())
+            }
+        })
+
+        LiveDataBus.getDefault().subscribe<LiveDataEntity>("Login").observe(this, Observer { msg ->
+            msg?.let {
+                toast(it.msg)
+            }
+        })
     }
-  }
-  
-  private fun switchPasswordCleartext() {
-    val tag = if (etInputPassword.tag == null) {
-      false
-    } else {
-      etInputPassword.tag as Boolean
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
+        btnLogin.setOnClickListener(this)
+        ivNameClear.setOnClickListener(this)
+        ivPasswordClear.setOnClickListener(this)
     }
-    val txt = etInputPassword.text.toString().trim()
-    var length = 0
-    if (!TextUtils.isEmpty(txt)) {
-      length = txt.length
+
+    override fun onClick(v: View?) {
+        v?.id?.let {
+            when (it) {
+                R.id.btnLogin -> mViewModel.getLoginData(
+                    "1dbe64d0d4e5c700e98760644b234d56",
+                    Tools.getEditTextString(etInputName),
+                    Tools.getEditTextString(etInputPassword),
+                    this
+                )
+                R.id.ivNameClear -> etInputName.setText("")
+                R.id.ivPasswordClear -> switchPasswordCleartext()
+            }
+        }
     }
-    if (tag) {
-      ivPasswordClear.setImageResource(R.mipmap.show_psw_press)
-      etInputPassword.tag = false
-      etInputPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-    } else {
-      ivPasswordClear.setImageResource(R.mipmap.show_psw)
-      etInputPassword.tag = true
-      etInputPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+
+    private fun switchPasswordCleartext() {
+
+        val tag = (etInputPassword.tag ?: false) as Boolean
+
+        val txt = etInputPassword.text.toString().trim()
+        var length = 0
+        if (!TextUtils.isEmpty(txt)) {
+            length = txt.length
+        }
+        if (tag) {
+            ivPasswordClear.setImageResource(R.mipmap.show_psw_press)
+            etInputPassword.tag = false
+            etInputPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        } else {
+            ivPasswordClear.setImageResource(R.mipmap.show_psw)
+            etInputPassword.tag = true
+            etInputPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        }
+        etInputPassword.setSelection(length)
     }
-    etInputPassword.setSelection(length)
-  }
-  
-  
+
+
 }
