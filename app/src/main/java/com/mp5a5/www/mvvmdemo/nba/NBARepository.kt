@@ -2,6 +2,8 @@ package com.mp5a5.www.mvvmdemo.nba
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
+import com.mp5a5.www.library.net.revert.BaseResponseEntity
+import com.mp5a5.www.library.net.revert.OnBaseResponseListener
 import com.mp5a5.www.library.use.BaseDisposableSubscriber
 import com.mp5a5.www.mvvmdemo.mvvm.BaseRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,13 +17,13 @@ import io.reactivex.schedulers.Schedulers
 class NBARepository : BaseRepository() {
 
     @SuppressLint("CheckResult")
-    fun loadNBAData(key: String,appCompatActivity: AppCompatActivity) {
+    fun loadNBAData(key: String, appCompatActivity: AppCompatActivity, param: OnBaseResponseListener<BaseResponseEntity<*>>) {
         val subscribeWith = NbaService.getInstance().getNBAInfo1(key)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object : BaseDisposableSubscriber<NBAEntity>(appCompatActivity,true) {
                 override fun onSuccess(response: NBAEntity?) {
-                    sendData("Article", null, response!!)
+                  param.onSuccess(response)
                 }
             })
 

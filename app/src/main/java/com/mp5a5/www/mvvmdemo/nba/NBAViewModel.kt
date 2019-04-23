@@ -2,6 +2,7 @@ package com.mp5a5.www.mvvmdemo.nba
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
+import com.mp5a5.www.library.net.revert.OnBaseResponseListener
 import com.mp5a5.www.mvvmdemo.mvvm.BaseViewModel
 
 /**
@@ -12,7 +13,9 @@ import com.mp5a5.www.mvvmdemo.mvvm.BaseViewModel
 class NBAViewModel(application: Application) : BaseViewModel<NBARepository>(application) {
   
   fun getNBAData(key: String, activity: AppCompatActivity) {
-    mRepository.loadNBAData(key, activity)
+    mRepository.loadNBAData(key, activity, OnBaseResponseListener {
+      sendData("Article", null, it)
+    })
   }
   
 }

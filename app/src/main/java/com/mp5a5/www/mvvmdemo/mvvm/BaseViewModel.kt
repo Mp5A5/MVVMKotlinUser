@@ -20,4 +20,12 @@ open class BaseViewModel<T : BaseRepository>(application: Application) : Android
         mRepository.unbindDisposable()
     }
     
+    protected fun sendData(eventKey: Any, value: Any) {
+        sendData(eventKey, null, value)
+    }
+    
+    protected fun sendData(eventKey: Any, tag: String?, value: Any) {
+        LiveDataBus.getDefault().postEvent(eventKey, tag, value)
+    }
+    
 }

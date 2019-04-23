@@ -1,8 +1,9 @@
 package com.mp5a5.www.mvvmdemo.history_today
 
+import com.mp5a5.www.library.net.revert.BaseResponseEntity
+import com.mp5a5.www.library.net.revert.OnBaseResponseListener
 import com.mp5a5.www.library.use.BaseObserver
 import com.mp5a5.www.mvvmdemo.mvvm.BaseRepository
-import com.mp5a5.www.mvvmdemo.mvvm.LiveDataEntity
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -14,7 +15,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class HistoryTodayRepository : BaseRepository() {
 
-    fun getTodayResult(key: String, v: String, month: Int, day: Int, activity: RxAppCompatActivity) {
+    fun getTodayResult(key: String, v: String, month: Int, day: Int, activity: RxAppCompatActivity, listener: OnBaseResponseListener<BaseResponseEntity<*>>) {
         HistoryTodayService
             .getTodayEvents(key, v, month, day)
             .subscribeOn(Schedulers.io())
@@ -22,17 +23,17 @@ class HistoryTodayRepository : BaseRepository() {
             .compose(activity.bindToLifecycle())
             .subscribe(object : BaseObserver<HistoryTodayEntity>(activity, true) {
                 override fun onSuccess(response: HistoryTodayEntity?) {
-                    sendData("HistoryTodayViewModel", "s", response!!)
+                  listener.onSuccess(response)
                 }
 
                 override fun onFailing(response: HistoryTodayEntity?) {
                     super.onFailing(response)
-                    sendData("HistoryTodayViewModel", LiveDataEntity("fail", response?.msg))
+                  listener.onFailing(response)
                 }
 
                 override fun onError(e: Throwable) {
                     super.onError(e)
-                    sendData("HistoryTodayViewModel", LiveDataEntity("error", e.message))
+                  listener.onError()
                 }
 
             })
